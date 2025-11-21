@@ -1,0 +1,5 @@
+qemu-img create -f qcow2 osx10.qcow2 10G
+
+qemu-system-ppc -L pc-bios -boot d -M mac99,via=pmu -m 2048 -prom-env "auto-boot?=true" -prom-env "boot=args=-V" -prom-env "vga-ndrv?=true" -drive file=osx10.qcow2 -drive file=Leopard.iso,format=raw,media=cdrom  -netdev user,id=network01 -device sungem,netdev=network01 -device VGA,edid=on -g 1024x768x32
+
+qemu-system-ppc -L pc-bios -boot c -M mac99,via=pmu -m 2048 -prom-env "auto-boot?=true" -prom-env "boot=args=-V" -prom-env "vga-ndrv?=true" -drive file=osx10.qcow2 -drive file=Leopard.iso,format=raw,media=cdrom  -netdev user,id=network01 -device sungem,netdev=network01 -device VGA,edid=on -g 1024x768x32
