@@ -1,0 +1,5 @@
+qemu-img.exe create -f qcow2 osx10.img 8G
+
+qemu-system-ppc.exe -M mac99 -m 256 -hda osx10.img -cdrom "C:\path\to\MacOSX10.0.iso" -boot d -netdev user,id=mynet0 -device rtl8139,netdev=mynet0 -device usb-kbd -device usb-mouse
+
+qemu-system-ppc.exe -M mac99 -m 512 -hda osx10.img -boot c -netdev user,id=mynet0 -device rtl8139,netdev=mynet0 -device usb-kbd -device usb-mouse
