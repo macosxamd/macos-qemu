@@ -1,0 +1,3 @@
+qemu-img create -f qcow2 osx10.qcow2 8G
+qemu-system-ppc.exe -M mac99 -m 2048 -cpu 7400 -drive file=".\osx10.qcow2",if=ide -drive file=".\TigerServer.iso",media=cdrom -boot d -vga std
+qemu-system-ppc.exe -M mac99 -m 2048 -cpu 7400 -drive file=".\osx10.qcow2",if=ide -drive file=".\TigerServer.iso",media=cdrom -boot c -vga std
